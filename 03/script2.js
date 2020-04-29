@@ -1,5 +1,5 @@
 //Operações com Arrays
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr = [0, 1, 3, 5, 7, 8, 9];
 
 
 //a) map
@@ -7,11 +7,11 @@ const mapArr = arr.map((item) => item * 2);
 console.log(mapArr);
 
 //b) filter
-const filtArr = arr.filter((item) => item % 2 === 0 ? true : false);
+const filtArr = arr.filter((item) => item % 2 === 0);
 console.log(filtArr);
 
 //c) find
-const findArr = arr.filter((item) => item === 6 ? true : false);
+const findArr = arr.find((item) => item === 1);
 console.log(findArr);
 
 //d) reduce
