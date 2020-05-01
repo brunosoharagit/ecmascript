@@ -1,4 +1,9 @@
-export function soma(a, b)
+export const idade = 23;
+
+export default class Usuario
 {
-    return a + b;
+    static info()
+    {
+        console.log('Apenas teste');
+    }
 }
