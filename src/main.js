@@ -21,7 +21,7 @@ class App
         this.repositories.push({
             name: 'Rocketseat',
             description: 'Sua ideia se transforma em realidade',
-            avatar_url: 'https://avatars0.githubusercontent/u/28929274?v=4',
+            avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?s=200&v=4',
             html_url: 'https://github.com/rocketseat',
         });
 
@@ -44,6 +44,7 @@ class App
 
             let linkEl = document.createElement('a');
             linkEl.setAttribute('target', '_blank');
+            linkEl.setAttribute('href', repo.html_url);
             linkEl.appendChild(document.createTextNode('Acessar'));
 
             let listItemEl = document.createElement('li');
