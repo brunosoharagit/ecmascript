@@ -1,9 +1,13 @@
+import api from './api';
+
 class App
 {
     constructor()
     {
         this.repositories = [];
+
         this.formEl = document.getElementById('repo-form');
+        this.inputEl = document.querySelector('input[name=repository]');
         this.listEl = document.getElementById('repo-list');
 
         this.registerHandlers();
@@ -14,16 +18,29 @@ class App
         this.formEl.onsubmit = event => this.addRepository(event);
     }
 
-    addRepository(event)
+    async addRepository(event)
     {
         event.preventDefault();
 
+        const repoInput = this.inputEl.value;
+
+        if (repoInput.length === 0)
+            return;
+
+        const response = await api.get(`/repos/${repoInput}`);
+
+        const { name, description, html_url, owner: { avatar_url }} = response.data;
+
+        console.log(response);
+
         this.repositories.push({
-            name: 'Rocketseat',
-            description: 'Sua ideia se transforma em realidade',
-            avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?s=200&v=4',
-            html_url: 'https://github.com/rocketseat',
+            name,
+            description,
+            avatar_url,
+            html_url,
         });
+
+        this.inputEl.value = '';
 
         this.render();
     }
